@@ -7,6 +7,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+
 // Rota vulnerável a SQL Injection
 app.get('/search', (req, res) => {
   const searchTerm = req.query.term;
