@@ -10,20 +10,6 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
-      with:
-        path: 'pisc-2024'
-
-    - name: Set project directory
-      run: |
-        PROJECT_DIR=$(find pisc-2024 -mindepth 2 -maxdepth 2 -type d -name "day-*" | head -n 1)
-        echo "Project directory: $PROJECT_DIR"
-        echo "::set-env name=PROJECT_DIR::$PROJECT_DIR"
-
-    - name: Navigate to project directory
-      run: cd ${{ env.PROJECT_DIR }}
-      
-    - name: Install dependencies
-      run: npm install
         
     - name: Trivy Scan
       uses: aquasecurity/trivy-action@master
